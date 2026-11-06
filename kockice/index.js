@@ -1,19 +1,27 @@
-let randomNumber1 = Math.floor(Math.random() * 6) + 1; //1-6 random
-let randomNumber2 = Math.floor(Math.random() * 6) + 1;
+function randomNumber() {
+  return Math.floor(Math.random()*6)+1;
+}
 
-let randomImageSource1 = "images/dice" + randomNumber1 + ".png";
-let randomImageSource2 = "images/dice" + randomNumber2 + ".png";
+let randNumber1 = randomNumber();
+let randNumber2 = randomNumber();
 
-let image1 = document.querySelectorAll("img")[0];
-image1.setAttribute("src", randomImageSource1);
+/* console.log(randNumber1 + " " + randNumber2); */
 
-let image2 = document.querySelectorAll("img")[1];
-image2.setAttribute("src", randomImageSource2);
+let randImageSource1 = "./images/dice" + randNumber1 + ".png";
+let randImageSource2 = "./images/dice" + randNumber2 + ".png";
 
-if (randomNumber1 > randomNumber2) {
-  document.querySelector("h1").innerHTML = "Igrač 1 pobijedio";
-} else if (randomNumber1 < randomNumber2) {
-  document.querySelector("h1").innerHTML = "Igrač 2 pobijedio";
-} else {
-  document.querySelector("h1").innerHTML = "Nerješeno";
+document.querySelectorAll("img")[0].setAttribute("src", randImageSource1);
+document.querySelectorAll("img")[1].setAttribute("src", randImageSource2);
+
+if(randNumber1>randNumber2)
+{
+  document.querySelector("h1").textContent = "Igrač 1 pobijedio";
+}
+else if(randNumber1<randNumber2)
+{
+  document.querySelector("h1").textContent = "Igrač 2 pobijedio";
+}
+else
+{
+  document.querySelector("h1").textContent = "Nerješeno";
 }
